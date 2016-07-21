@@ -123,7 +123,7 @@ public class LoadingMoreList<TItem, TReference> extends ObservableCollection<TIt
         this.removeDuplicates = removeDuplicates;
     }
 
-    private void onItemsLoaded(@NonNull final LoadedItems<TItem, TReference> loadedItems, final boolean reset) {
+    protected void onItemsLoaded(@NonNull final LoadedItems<TItem, TReference> loadedItems, final boolean reset) {
         moreItemsReference = loadedItems.getReference();
         final List<TItem> items = new ArrayList<>(loadedItems.getItems());
         if (!reset) {
