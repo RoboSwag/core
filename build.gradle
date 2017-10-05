@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion compileSdk
     buildToolsVersion buildTools
 
     compileOptions {
