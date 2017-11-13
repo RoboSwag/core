@@ -58,6 +58,8 @@ public class ObservableList<TItem> extends ObservableCollection<TItem> implement
     private SameItemsPredicate<TItem> sameItemsPredicate;
     @Nullable
     private ChangePayloadProducer<TItem> changePayloadProducer;
+    @Nullable
+    private ObservableList<TItem> diffUtilsSource;
 
     public ObservableList() {
         super();
@@ -227,9 +229,19 @@ public class ObservableList<TItem> extends ObservableCollection<TItem> implement
         synchronized (this) {
             final List<TItem> oldList = new ArrayList<>(items);
             final List<TItem> newList = new ArrayList<>(newItems);
-            final CollectionsChangesCalculator<TItem> calculator = sameItemsPredicate != null
-                    ? new DiffCollectionsChangesCalculator<>(oldList, newList, detectMoves, sameItemsPredicate, changePayloadProducer)
-                    : new DefaultCollectionsChangesCalculator<>(oldList, newList, false);
+            final CollectionsChangesCalculator<TItem> calculator;
+            if (diffUtilsSource != null) {
+                if (diffUtilsSource.sameItemsPredicate != null) {
+                    calculator = new DiffCollectionsChangesCalculator<>(oldList, newList,
+                            diffUtilsSource.detectMoves, diffUtilsSource.sameItemsPredicate, diffUtilsSource.changePayloadProducer);
+                } else {
+                    calculator = new DefaultCollectionsChangesCalculator<>(oldList, newList, false);
+                }
+            } else if (sameItemsPredicate != null) {
+                calculator = new DiffCollectionsChangesCalculator<>(oldList, newList, detectMoves, sameItemsPredicate, changePayloadProducer);
+            } else {
+                calculator = new DefaultCollectionsChangesCalculator<>(oldList, newList, false);
+            }
             items.clear();
             items.addAll(newItems);
             notifyAboutChanges(calculator.calculateInsertedItems(), calculator.calculateRemovedItems(), calculator.calculateChanges());
@@ -271,7 +283,16 @@ public class ObservableList<TItem> extends ObservableCollection<TItem> implement
      * @return true if diff utils is enabled.
      */
     public boolean diffUtilsIsEnabled() {
-        return sameItemsPredicate != null;
+        return diffUtilsSource != null ? diffUtilsSource.diffUtilsIsEnabled() : sameItemsPredicate != null;
+    }
+
+    /**
+     * Sets observableCollection as a source of diff utils parameters;
+     *
+     * @param diffUtilsSource Source of diff utils parameters.
+     */
+    public void setDiffUtilsSource(@Nullable final ObservableList<TItem> diffUtilsSource) {
+        this.diffUtilsSource = diffUtilsSource;
     }
 
     /**
