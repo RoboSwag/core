@@ -334,11 +334,16 @@ public abstract class BaseStorable<TKey, TObject, TStoreObject, TReturnObject> {
      *
      * @return Returns value;
      */
-    @Deprecated
-    //deprecation: it should be used for debug only and in very rare cases.
     @Nullable
-    public TReturnObject getSync() {
-        return get().blockingGet();
+    public TObject getSync() {
+        final TStoreObject storeObject = store.getObject(storeObjectType, key);
+        try {
+            return converter.toObject(objectType, storeObjectType, storeObject);
+        } catch (final Converter.ConversionException exception) {
+            STORABLE_LC_GROUP.w(exception, "Exception while trying to converting value of '%s' from store %s by %s",
+                    key, storeObject, store, converter);
+            return null;
+        }
     }
 
     /**
