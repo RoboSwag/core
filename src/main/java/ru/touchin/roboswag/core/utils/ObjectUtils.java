@@ -27,8 +27,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
-import ru.touchin.roboswag.core.observables.collections.ObservableCollection;
-
 /**
  * Created by Gavriil Sitnikov on 04/10/2015.
  * Some utilities related to objects.
@@ -161,16 +159,6 @@ public final class ObjectUtils {
      */
     public static boolean isNullOrEmpty(@Nullable final Collection<?> collection) {
         return collection == null || collection.isEmpty();
-    }
-
-    /**
-     * Returns true if ObservableCollection is null or empty.
-     *
-     * @param observableCollection observableCollection to check;
-     * @return True if observableCollection is null or empty.
-     */
-    public static boolean isNullOrEmpty(@Nullable final ObservableCollection<?> observableCollection) {
-        return observableCollection == null || observableCollection.isEmpty();
     }
 
     /**
