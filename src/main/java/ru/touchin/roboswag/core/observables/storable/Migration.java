@@ -101,7 +101,7 @@ public class Migration<TKey> {
                                     .switchMap(throwable -> throwable instanceof NextLoopMigrationException
                                             ? Flowable.just(new Object()) : Flowable.error(throwable)));
                 })
-                .toCompletable()
+                .ignoreElement()
                 .andThen(versionsStore.storeObject(Long.class, key, latestVersion))
                 .onErrorResumeNext(throwable -> {
                     if (throwable instanceof MigrationException) {
