@@ -17,6 +17,5 @@ dependencies {
     compileOnly "androidx.annotation:annotation:$androidx"
     compileOnly "io.reactivex:rxandroid:$rxAndroidVersion"
     compileOnly "io.reactivex:rxjava:$rxJavaVersion"
-
-    implementation "androidx.core:core:$androidx"
+    compileOnly "androidx.core:core:$androidx"
 }
