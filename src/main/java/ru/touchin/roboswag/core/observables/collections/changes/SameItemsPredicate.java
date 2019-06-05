@@ -19,7 +19,7 @@
 
 package ru.touchin.roboswag.core.observables.collections.changes;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 /**
  * Functional interface for determine same objects. Usually this is just the comparison by id.

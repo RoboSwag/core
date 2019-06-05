@@ -19,13 +19,12 @@
 
 package ru.touchin.roboswag.core.observables.storable;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.lang.reflect.Type;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import ru.touchin.roboswag.core.log.Lc;
 import ru.touchin.roboswag.core.log.LcGroup;
 import ru.touchin.roboswag.core.observables.OnSubscribeRefCountWithCacheTime;

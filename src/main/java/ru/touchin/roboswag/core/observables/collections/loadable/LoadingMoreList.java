@@ -19,9 +19,6 @@
 
 package ru.touchin.roboswag.core.observables.collections.loadable;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -29,6 +26,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.Executors;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import ru.touchin.roboswag.core.log.Lc;
 import ru.touchin.roboswag.core.observables.collections.ObservableCollection;
 import ru.touchin.roboswag.core.observables.collections.ObservableList;

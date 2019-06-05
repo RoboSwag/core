@@ -19,7 +19,7 @@
 
 package ru.touchin.roboswag.core.observables.collections.changes;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import java.util.Collection;
 import java.util.Collections;

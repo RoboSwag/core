@@ -19,8 +19,8 @@
 
 package ru.touchin.roboswag.core.observables.collections.changes;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /**
  * Functional interface for calculating change payload between two items same type.

@@ -16,14 +16,13 @@
 
 package ru.touchin.roboswag.core.observables;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import rx.Observable.OnSubscribe;
 import rx.Scheduler;
 import rx.Subscriber;

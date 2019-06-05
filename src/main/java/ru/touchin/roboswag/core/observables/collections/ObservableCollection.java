@@ -19,9 +19,6 @@
 
 package ru.touchin.roboswag.core.observables.collections;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -29,6 +26,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import ru.touchin.roboswag.core.observables.collections.changes.Change;
 import ru.touchin.roboswag.core.observables.collections.changes.CollectionChanges;
 import rx.Emitter;

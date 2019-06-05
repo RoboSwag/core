@@ -19,14 +19,13 @@
 
 package ru.touchin.roboswag.core.observables;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import ru.touchin.roboswag.core.utils.ObjectUtils;
 import ru.touchin.roboswag.core.utils.Optional;
 import rx.Observable;

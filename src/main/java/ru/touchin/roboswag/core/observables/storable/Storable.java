@@ -19,12 +19,11 @@
 
 package ru.touchin.roboswag.core.observables.storable;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
 import java.lang.reflect.Type;
 import java.util.concurrent.TimeUnit;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import ru.touchin.roboswag.core.observables.storable.concrete.NonNullStorable;
 import ru.touchin.roboswag.core.utils.Optional;
 import rx.Observable;
